@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medivest_BarCodePrinter", "Medivest_BarCodePrinter.csproj", "{AD410D42-29C2-482B-A086-04FE0F166223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medivest_BarCodePrinter", "Medivest_BarCodePrinter.csproj", "{AD410D42-29C2-482B-A086-04FE0F166223}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Medivest_BarGeneratorSetup", "..\..\Medivest_BarGeneratorSetup\Medivest_BarGeneratorSetup.vdproj", "{241CB200-A894-4D28-8F77-3C355BC918A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{AD410D42-29C2-482B-A086-04FE0F166223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD410D42-29C2-482B-A086-04FE0F166223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD410D42-29C2-482B-A086-04FE0F166223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241CB200-A894-4D28-8F77-3C355BC918A4}.Debug|Any CPU.ActiveCfg = Debug
+		{241CB200-A894-4D28-8F77-3C355BC918A4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
