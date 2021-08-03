@@ -230,5 +230,10 @@ namespace Medivest_BarCodePrinter
             var frm = new Form_ConfirmPrintSticker(cboPrinterNames.Text, printedItems);
             frm.ShowDialog(this);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
