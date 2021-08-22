@@ -2,6 +2,7 @@
 using Medivest_BarCodePrinter.Models.Login.PrintSticker.Medivest;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Medivest_BarCodePrinter
@@ -20,6 +21,12 @@ namespace Medivest_BarCodePrinter
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvItems.AllowUserToResizeColumns = false;
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvItems.RowsDefaultCellStyle.BackColor = Color.Bisque;
+            dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige;
+
+            dgvItems.RowHeadersVisible = false;
+
             dgvItems.ReadOnly = true;
             Printer = printer;
         }

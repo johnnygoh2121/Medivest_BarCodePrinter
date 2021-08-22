@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.cbxSearchField = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearcgVal = new System.Windows.Forms.TextBox();
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.cbxSearchField);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.tbSearcgVal);
@@ -75,23 +77,34 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnReset.Location = new System.Drawing.Point(1030, 63);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(122, 29);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "Refresh";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // cbxSearchField
             // 
             this.cbxSearchField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cbxSearchField.FormattingEnabled = true;
-            this.cbxSearchField.Location = new System.Drawing.Point(426, 90);
+            this.cbxSearchField.Location = new System.Drawing.Point(428, 63);
             this.cbxSearchField.Name = "cbxSearchField";
             this.cbxSearchField.Size = new System.Drawing.Size(244, 28);
-            this.cbxSearchField.TabIndex = 6;
+            this.cbxSearchField.TabIndex = 0;
             this.cbxSearchField.SelectedIndexChanged += new System.EventHandler(this.cbxSearchField_SelectedIndexChanged);
             // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnSearch.Location = new System.Drawing.Point(895, 90);
+            this.btnSearch.Location = new System.Drawing.Point(897, 63);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
-            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Size = new System.Drawing.Size(122, 29);
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -99,16 +112,16 @@
             // tbSearcgVal
             // 
             this.tbSearcgVal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.tbSearcgVal.Location = new System.Drawing.Point(676, 90);
+            this.tbSearcgVal.Location = new System.Drawing.Point(678, 63);
             this.tbSearcgVal.Name = "tbSearcgVal";
             this.tbSearcgVal.Size = new System.Drawing.Size(192, 27);
             this.tbSearcgVal.TabIndex = 1;
-            this.tbSearcgVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearcgVal_KeyUp);
+            this.tbSearcgVal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // lbSearch
             // 
             this.lbSearch.AutoSize = true;
-            this.lbSearch.Location = new System.Drawing.Point(309, 94);
+            this.lbSearch.Location = new System.Drawing.Point(311, 67);
             this.lbSearch.Name = "lbSearch";
             this.lbSearch.Size = new System.Drawing.Size(53, 20);
             this.lbSearch.TabIndex = 0;
@@ -117,7 +130,7 @@
             // cbxSelectAll
             // 
             this.cbxSelectAll.AutoSize = true;
-            this.cbxSelectAll.Location = new System.Drawing.Point(896, 62);
+            this.cbxSelectAll.Location = new System.Drawing.Point(1059, 126);
             this.cbxSelectAll.Name = "cbxSelectAll";
             this.cbxSelectAll.Size = new System.Drawing.Size(93, 24);
             this.cbxSelectAll.TabIndex = 5;
@@ -129,15 +142,15 @@
             // 
             this.cboPrinterNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cboPrinterNames.FormattingEnabled = true;
-            this.cboPrinterNames.Location = new System.Drawing.Point(428, 56);
+            this.cboPrinterNames.Location = new System.Drawing.Point(428, 124);
             this.cboPrinterNames.Name = "cboPrinterNames";
             this.cboPrinterNames.Size = new System.Drawing.Size(440, 28);
-            this.cboPrinterNames.TabIndex = 4;
+            this.cboPrinterNames.TabIndex = 3;
             // 
             // lbPrinters
             // 
             this.lbPrinters.AutoSize = true;
-            this.lbPrinters.Location = new System.Drawing.Point(309, 60);
+            this.lbPrinters.Location = new System.Drawing.Point(309, 128);
             this.lbPrinters.Name = "lbPrinters";
             this.lbPrinters.Size = new System.Drawing.Size(96, 20);
             this.lbPrinters.TabIndex = 0;
@@ -146,10 +159,10 @@
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnPrint.Location = new System.Drawing.Point(896, 21);
+            this.btnPrint.Location = new System.Drawing.Point(896, 124);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(94, 29);
-            this.btnPrint.TabIndex = 3;
+            this.btnPrint.Size = new System.Drawing.Size(123, 29);
+            this.btnPrint.TabIndex = 4;
             this.btnPrint.Text = "Print Selected";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.brnPrint_Click);
@@ -157,8 +170,10 @@
             // tbWhs
             // 
             this.tbWhs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.tbWhs.Enabled = false;
             this.tbWhs.Location = new System.Drawing.Point(428, 21);
             this.tbWhs.Name = "tbWhs";
+            this.tbWhs.ReadOnly = true;
             this.tbWhs.Size = new System.Drawing.Size(440, 27);
             this.tbWhs.TabIndex = 1;
             // 
@@ -192,7 +207,7 @@
             this.dgvItems.ReadOnly = true;
             this.dgvItems.RowHeadersWidth = 51;
             this.dgvItems.Size = new System.Drawing.Size(1292, 533);
-            this.dgvItems.TabIndex = 2;
+            this.dgvItems.TabIndex = 5;
             this.dgvItems.Text = "dataGridView1";
             this.dgvItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellClick);
             // 
@@ -232,5 +247,6 @@
         private System.Windows.Forms.TextBox tbSearcgVal;
         private System.Windows.Forms.Label lbSearch;
         private System.Windows.Forms.ComboBox cbxSearchField;
+        private System.Windows.Forms.Button btnReset;
     }
 }

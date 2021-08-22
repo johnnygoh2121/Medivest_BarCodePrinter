@@ -76,6 +76,7 @@
             this.tbPw.TabIndex = 1;
             this.tbPw.UseSystemPasswordChar = true;
             this.tbPw.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_MouseClick);
+            this.tbPw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // pictureBox1
             // 
@@ -136,7 +137,7 @@
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barcode Generator";
-            this.Load += new System.EventHandler(this.Form_Login_Load);            
+            this.Load += new System.EventHandler(this.Form_Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
