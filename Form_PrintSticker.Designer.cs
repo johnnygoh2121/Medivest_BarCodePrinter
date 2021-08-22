@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxSearchField = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearcgVal = new System.Windows.Forms.TextBox();
             this.lbSearch = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxSearchField);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.tbSearcgVal);
             this.groupBox1.Controls.Add(this.lbSearch);
@@ -73,31 +75,40 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // cbxSearchField
+            // 
+            this.cbxSearchField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cbxSearchField.FormattingEnabled = true;
+            this.cbxSearchField.Location = new System.Drawing.Point(426, 90);
+            this.cbxSearchField.Name = "cbxSearchField";
+            this.cbxSearchField.Size = new System.Drawing.Size(244, 28);
+            this.cbxSearchField.TabIndex = 6;
+            this.cbxSearchField.SelectedIndexChanged += new System.EventHandler(this.cbxSearchField_SelectedIndexChanged);
+            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnSearch.Location = new System.Drawing.Point(895, 92);
+            this.btnSearch.Location = new System.Drawing.Point(895, 90);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(94, 29);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbSearcgVal
             // 
             this.tbSearcgVal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.tbSearcgVal.Location = new System.Drawing.Point(428, 92);
+            this.tbSearcgVal.Location = new System.Drawing.Point(676, 90);
             this.tbSearcgVal.Name = "tbSearcgVal";
-            this.tbSearcgVal.Size = new System.Drawing.Size(440, 27);
+            this.tbSearcgVal.Size = new System.Drawing.Size(192, 27);
             this.tbSearcgVal.TabIndex = 1;
             this.tbSearcgVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearcgVal_KeyUp);
             // 
             // lbSearch
             // 
             this.lbSearch.AutoSize = true;
-            this.lbSearch.Location = new System.Drawing.Point(309, 96);
+            this.lbSearch.Location = new System.Drawing.Point(309, 94);
             this.lbSearch.Name = "lbSearch";
             this.lbSearch.Size = new System.Drawing.Size(53, 20);
             this.lbSearch.TabIndex = 0;
@@ -220,5 +231,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbSearcgVal;
         private System.Windows.Forms.Label lbSearch;
+        private System.Windows.Forms.ComboBox cbxSearchField;
     }
 }

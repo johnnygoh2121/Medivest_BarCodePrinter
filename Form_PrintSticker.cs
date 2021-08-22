@@ -56,6 +56,37 @@ namespace Medivest_BarCodePrinter
                     dgvItems.AllowUserToResizeColumns = false;
                     dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
                     dgvItems.Columns["isprint"].DisplayIndex = 0;
+
+                    dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                    InitCboSearchFields(dgvItems);
+                }
+            }
+            catch (Exception excep)
+            {
+                MessageBox.Show($"{excep.Message}", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        void InitCboSearchFields (DataGridView dgv)
+        {
+            try
+            {
+                if (dgv == null) return;
+                // 20210822T1108
+                // fill in the property field for user selection 
+                var columns = new List<string>();
+                for (int c = 0; c < dgvItems.Columns.Count; c++)
+                {
+                    var column_name = dgvItems.Columns[c].HeaderText;
+                    if (string.IsNullOrWhiteSpace(column_name)) continue;
+                    columns.Add(column_name);
+                }
+                cbxSearchField.DataSource = columns;
+                if (cbxSearchField.Items.Count > 0)
+                {
+                    cbxSearchField.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cbxSearchField.SelectedIndex = 0;
                 }
             }
             catch (Exception excep)
@@ -169,32 +200,32 @@ namespace Medivest_BarCodePrinter
 
         private void tbSearcgVal_KeyUp(object sender, KeyEventArgs e)
         {
-            try
-            {
-                if (dgvItems == null) return;
-                if (dgvItems.Rows == null) return;
-                if (dgvItems.Rows.Count == 0) return;
+            //try
+            //{
+            //    if (dgvItems == null) return;
+            //    if (dgvItems.Rows == null) return;
+            //    if (dgvItems.Rows.Count == 0) return;
 
-                if (Items == null) return;
-                if (string.IsNullOrWhiteSpace(tbSearcgVal.Text)) return;
+            //    if (Items == null) return;
+            //    if (string.IsNullOrWhiteSpace(tbSearcgVal.Text)) return;
 
-                var queryLowCs = tbSearcgVal.Text;
-                var filter = Items.Where(i => $"{i.itemcode}".ToLower().Contains(queryLowCs) ||
-                                               $"{i.itemname}".ToLower().Contains(queryLowCs) ||
-                                               $"{i.model}".ToLower().Contains(queryLowCs) ||
-                                               $"{i.brand}".ToLower().Contains(queryLowCs) ||
-                                               $"{i.uom}".ToLower().Contains(queryLowCs)
-                                               ).ToList();
+            //    var queryLowCs = tbSearcgVal.Text;
+            //    var filter = Items.Where(i => $"{i.itemcode}".ToLower().Contains(queryLowCs) ||
+            //                                   $"{i.itemname}".ToLower().Contains(queryLowCs) ||
+            //                                   $"{i.model}".ToLower().Contains(queryLowCs) ||
+            //                                   $"{i.brand}".ToLower().Contains(queryLowCs) ||
+            //                                   $"{i.uom}".ToLower().Contains(queryLowCs)
+            //                                   ).ToList();
                 
-                if (filter == null) return;
-                if (filter.Count == 0) return;
+            //    if (filter == null) return;
+            //    if (filter.Count == 0) return;
 
-                dgvItems.DataSource = filter;
-            }
-            catch (Exception excep)
-            {
-                MessageBox.Show($"{excep.Message}", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            //    dgvItems.DataSource = filter;
+            //}
+            //catch (Exception excep)
+            //{
+            //    MessageBox.Show($"{excep.Message}", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
         }
 
         private void brnPrint_Click(object sender, EventArgs e)
@@ -233,7 +264,31 @@ namespace Medivest_BarCodePrinter
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(cbxSearchField.Text))
+                {
+                    return;
+                }
 
+                if (string.IsNullOrWhiteSpace(tbSearcgVal.Text))
+                {
+                    return;
+                }
+
+                
+
+
+            }
+            catch(Exception excep)
+            {
+                MessageBox.Show($"{excep.Message}", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void cbxSearchField_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbSearcgVal.Focus();
         }
     }
 }
