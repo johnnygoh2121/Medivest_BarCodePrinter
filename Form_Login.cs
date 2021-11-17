@@ -18,6 +18,11 @@ namespace Medivest_BarCodePrinter
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            ProcessLogin();
+        }
+
+        void ProcessLogin ()
+        {
             try
             {
                 if (string.IsNullOrWhiteSpace(tbUserId.Text))
@@ -55,13 +60,13 @@ namespace Medivest_BarCodePrinter
                     {
                         var dialogResult = MessageBox.Show("Save this new address", $"{tbServerAddr.Text}", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
-                        {   
+                        {
                             var config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
                             config.AppSettings.Settings.Remove("svr");
 
                             config.AppSettings.Settings.Add("svr", tbServerAddr.Text);
                             config.Save(ConfigurationSaveMode.Minimal);
-                        }                        
+                        }
                     }
 
                     Program.LogonUser = JsonConvert.DeserializeObject<UserProfile>(response.Content);
@@ -87,7 +92,6 @@ namespace Medivest_BarCodePrinter
             {
                 this.Cursor = Cursors.Default;
             }
-
         }
 
         private void tb_MouseClick(object sender, MouseEventArgs e)
@@ -105,6 +109,14 @@ namespace Medivest_BarCodePrinter
         private void Form_Login_Load(object sender, EventArgs e)
         {
             tbServerAddr.Text = Program.SvrBaseAddress;
+        }
+
+        private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                ProcessLogin();
+            }
         }
     }
 }
